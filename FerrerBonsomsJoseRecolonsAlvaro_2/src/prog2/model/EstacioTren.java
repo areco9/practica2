@@ -1,7 +1,7 @@
 //package prog2.model;
 //
 //public class EstacioTren {
-//
+//    private String nom;
 //
 //    public void inicialitzaDadesEstacioTren() {
 //

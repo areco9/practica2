@@ -1,10 +1,12 @@
 package prog2.model;
 
+import java.util.ArrayList;
+
 public abstract class AccessDesnivell extends Access {
     private float height;
 
-    public AccessDesnivell(String nom, String accessibilitat, boolean estatAcces, int numVies, float height) {
-        super(nom, accessibilitat, estatAcces, numVies);
+    public AccessDesnivell(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height) {
+        super(nom, accessibilitat, estatAcces, accesVies);
         this.height = height;
     }
 
@@ -16,9 +18,9 @@ public abstract class AccessDesnivell extends Access {
         return "AccessDesnivell{" +
                 "height=" + height +
                 ", nom='" + getNom() + '\'' +
-                ", accessibilitat='" + getAccessibilitat() + '\'' +
+                ", accessibilitat='" + isAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
-                ", numVies=" + getNumVies() +
+                ", numVies=" + getAccesVies() +
                 '}';
     }
 }

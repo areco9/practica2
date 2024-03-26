@@ -1,11 +1,13 @@
 package prog2.model;
 
+import java.util.ArrayList;
+
 public class Ascensor extends AccessDesnivell {
 
     private float carrega;
 
-    public Ascensor(String nom, String accessibilitat, boolean estatAcces, int numVies, float height, float carrega) {
-        super(nom, accessibilitat, estatAcces, numVies, height);
+    public Ascensor(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height, float carrega) {
+        super(nom, accessibilitat, estatAcces, accesVies, height);
         this.carrega = carrega;
     }
 
@@ -45,7 +47,7 @@ public class Ascensor extends AccessDesnivell {
                 ", nom='" + getNom() + '\'' +
                 ", accessibilitat='" + getAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
-                ", numVies=" + getNumVies() +
+                ", numVies=" + getAccesVies() +
                 '}';
     }
 }

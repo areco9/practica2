@@ -1,11 +1,13 @@
 package prog2.model;
 
+import java.util.ArrayList;
+
 public class CintaTransportadora extends AccessNivell{
 
     private float velocitat;
 
-    public CintaTransportadora(String nom, String accessibilitat, boolean estatAcces, int numVies, float longitud, float velocitat) {
-        super(nom, accessibilitat, estatAcces, numVies, longitud);
+    public CintaTransportadora(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float longitud, float velocitat) {
+        super(nom, accessibilitat, estatAcces, accesVies, longitud);
         this.velocitat = velocitat;
     }
 
@@ -45,7 +47,7 @@ public class CintaTransportadora extends AccessNivell{
                 ", nom='" + getNom() + '\'' +
                 ", accessibilitat='" + getAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
-                ", numVies=" + getNumVies() +
+                ", numVies=" + getAccesVies() +
                 "velocitat=" + velocitat +
                 '}';
     }

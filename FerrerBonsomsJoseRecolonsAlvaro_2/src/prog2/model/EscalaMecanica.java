@@ -1,10 +1,12 @@
 package prog2.model;
 
+import java.util.ArrayList;
+
 public class EscalaMecanica extends AccessDesnivell {
 
     private String marca;
-    public EscalaMecanica(String nom, String accessibilitat, boolean estatAcces, int numVies, float height, String marca) {
-        super(nom, accessibilitat, estatAcces, numVies, height);
+    public EscalaMecanica(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height, String marca) {
+        super(nom, accessibilitat, estatAcces, accesVies, height);
         this.marca = marca;
     }
 
@@ -44,7 +46,7 @@ public class EscalaMecanica extends AccessDesnivell {
                 ", nom='" + getNom() + '\'' +
                 ", accessibilitat='" + getAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
-                ", numVies=" + getNumVies() +
+                ", numVies=" + getAccesVies() +
                 '}';
     }
 }

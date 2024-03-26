@@ -1,10 +1,12 @@
 package prog2.model;
 
+import java.util.ArrayList;
+
 public abstract class AccessNivell extends Access {
     private float longitud;
 
-    public AccessNivell(String nom, String accessibilitat, boolean estatAcces, int numVies, float height) {
-        super(nom, accessibilitat, estatAcces, numVies);
+    public AccessNivell(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height) {
+        super(nom, accessibilitat, estatAcces, accesVies);
         this.longitud = longitud;
     }
 
@@ -21,9 +23,9 @@ public abstract class AccessNivell extends Access {
         return "AccessNivell{" +
                 "longitud=" + longitud +
                 ", nom='" + getNom() + '\'' +
-                ", accessibilitat='" + getAccessibilitat() + '\'' +
+                ", accessibilitat='" + isAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
-                ", numVies=" + getNumVies() +
+                ", numVies=" + getAccesVies() +
                 '}';
     }
 }
