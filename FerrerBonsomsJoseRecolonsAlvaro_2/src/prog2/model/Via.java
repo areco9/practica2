@@ -6,9 +6,9 @@ public class Via implements InVia {
     private float ampladaVia;
     private int numTunels;
     private boolean estatVia;
-    private boolean estatIluminacio;
+    private String estatIluminacio;
 
-    public Via(String nom, float ampladaVia, int numTunels, boolean estatVia, boolean estatIluminacio) {
+    public Via(String nom, float ampladaVia, int numTunels, boolean estatVia, String estatIluminacio) {
         this.nom = nom;
         this.ampladaVia = ampladaVia;
         this.numTunels = numTunels;
@@ -16,14 +16,17 @@ public class Via implements InVia {
         this.estatIluminacio = estatIluminacio;
     }
 
+    // Modifica el estado de la via a Cerrada y la iluminación dependiendo de la incidencia recibida como parámetro
     @Override
     public void tancarVia(Incidencia in) {
-
+        Via via = in.getVia_();
+        via.setEstatVia(false);
+        via.setEstatIluminacio(in.getIluminacioVia());
     }
 
+    // Modifica el estado de la via a Abierta y la iluminación al 100%
     @Override
     public void obrirVia() {
-
     }
 
     public String getNom() {
@@ -58,11 +61,11 @@ public class Via implements InVia {
         this.estatVia = estatVia;
     }
 
-    public boolean isEstatIluminacio() {
+    public String getEstatIluminacio() {
         return estatIluminacio;
     }
 
-    public void setEstatIluminacio(boolean estatIluminacio) {
+    public void setEstatIluminacio(String estatIluminacio) {
         this.estatIluminacio = estatIluminacio;
     }
 
@@ -72,7 +75,7 @@ public class Via implements InVia {
                 ", ampladaVia='" + getAmpladaVia() + '\'' +
                 ", estatVia=" + isEstatVia() +
                 ", numTunels=" + getNumTunels() +
-                ", estatIluminacio=" + isEstatIluminacio() +
+                ", estatIluminacio=" + getEstatIluminacio() +
                 '}';
     }
 }
