@@ -53,9 +53,9 @@ public class LlistaIncidencies implements InLlistaIncidencies{
     // En caso que no haya ninguna incidencia lanza una excepción
     @Override
     public String llistarIncidencies() throws ExcepcioEstacio {
+        StringBuilder datosIncidencias = new StringBuilder();
         if (llistaIncidencies.isEmpty()) throw new ExcepcioEstacio();
         else {
-            StringBuilder datosIncidencias = new StringBuilder();
             for (Incidencia incidencia : llistaIncidencies){
                     datosIncidencias.append(incidencia.toString());
             }
