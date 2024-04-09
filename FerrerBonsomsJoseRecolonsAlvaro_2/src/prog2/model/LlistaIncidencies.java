@@ -30,11 +30,21 @@ public class LlistaIncidencies implements InLlistaIncidencies{
      // Una vez creada la incidencia se ha de cerrar la via correspondiente.
     @Override
     public void afegirIncidencia(int num, String tipus, Via via, String data) throws ExcepcioEstacio {
-        if (!via.isEstatVia()) {
+        if (via.getEstatVia().equals("Oberta")) {
             throw new ExcepcioEstacio();
         }
         else {
-
+            if(tipus.equals("Reparacio")){
+                Incidencia inc = new Incidencia(num, Incidencia.TipusIncidencia.Reparacio, via, data);
+            }
+            else if(tipus.equals("Objecte")){
+                Incidencia inc = new Incidencia(num, Incidencia.TipusIncidencia.Objecte, via, data);
+            }
+            else if(tipus.equals("Tancament")){
+                Incidencia inc = new Incidencia(num, Incidencia.TipusIncidencia.Tancament, via, data);
+            } else {
+                throw new ExcepcioEstacio();
+            }
         }
     }
 

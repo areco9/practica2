@@ -3,6 +3,7 @@ package prog2.model;
 import prog2.vista.ExcepcioEstacio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class LlistaAccessos implements InLlistaAccessos {
 
@@ -41,6 +42,17 @@ public class LlistaAccessos implements InLlistaAccessos {
     // Devuelve un string que contiene toda la información de los accesos que tienen el mismo estado que el dado
     @Override
     public String llistarAccessos(boolean estat) throws ExcepcioEstacio {
+        String s = null;
+        Iterator<Access> iterator = this.llistaAccessos.iterator();
+
+        while(iterator.hasNext()){
+            Access acc;
+            acc = iterator.next();
+            if(acc.isEstatAcces() == estat){
+                s += acc.toString() + '\n';
+            }
+        }
+
         return null;
     }
 
@@ -48,9 +60,13 @@ public class LlistaAccessos implements InLlistaAccessos {
     @Override
     public void actualitzaEstatAccessos() throws ExcepcioEstacio {
         for (Access access : llistaAccessos){
+            access.setEstatAcces(false);
             for( Via via : access.getAccesVies()){
-                access.setEstatAcces(via.isEstatVia());
+                if (via.getEstatVia().equals("Oberta")){
+                    access.setEstatAcces(true);
+                }
             }
+
         }
     }
 

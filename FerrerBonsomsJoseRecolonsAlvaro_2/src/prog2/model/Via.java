@@ -5,10 +5,10 @@ public class Via implements InVia {
     private String nom;
     private float ampladaVia;
     private int numTunels;
-    private boolean estatVia;
+    private String estatVia;
     private String estatIluminacio;
 
-    public Via(String nom, float ampladaVia, int numTunels, boolean estatVia, String estatIluminacio) {
+    public Via(String nom, float ampladaVia, int numTunels, String estatVia, String estatIluminacio) {
         this.nom = nom;
         this.ampladaVia = ampladaVia;
         this.numTunels = numTunels;
@@ -20,7 +20,7 @@ public class Via implements InVia {
     @Override
     public void tancarVia(Incidencia in) {
         Via via = in.getVia_();
-        via.setEstatVia(false);
+        via.setEstatVia("Tancada");
         via.setEstatIluminacio(in.getIluminacioVia());
     }
 
@@ -53,11 +53,11 @@ public class Via implements InVia {
         this.numTunels = numTunels;
     }
 
-    public boolean isEstatVia() {
+    public String getEstatVia() {
         return estatVia;
     }
 
-    public void setEstatVia(boolean estatVia) {
+    public void setEstatVia(String estatVia) {
         this.estatVia = estatVia;
     }
 
@@ -73,7 +73,7 @@ public class Via implements InVia {
         return "AccessDesnivell{" +
                 ", nom='" + getNom() + '\'' +
                 ", ampladaVia='" + getAmpladaVia() + '\'' +
-                ", estatVia=" + isEstatVia() +
+                ", estatVia=" + getEstatVia() +
                 ", numTunels=" + getNumTunels() +
                 ", estatIluminacio=" + getEstatIluminacio() +
                 '}';

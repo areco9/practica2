@@ -3,6 +3,7 @@ package prog2.model;
 import prog2.vista.ExcepcioEstacio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class LlistaVies implements InLlistaVies {
     private ArrayList<Via> llistaVies;
@@ -40,17 +41,34 @@ public class LlistaVies implements InLlistaVies {
     // Devuelve un string que contiene toda la información de las vías que tienen el mismo estado que el dado.
     @Override
     public String llistarVies(String estat) throws ExcepcioEstacio {
-        return null;
+        String s = null;
+        Iterator<Via> iterator = this.llistaVies.iterator();
+        if (estat.equals("Totes")) {
+            while (iterator.hasNext()) {
+                Via via;
+                via = iterator.next();
+                s += via.toString() + '\n';
+            }
+        }
+        else {
+            while (iterator.hasNext()) {
+                Via via;
+                via = iterator.next();
+                if (via.getEstatVia().equals(estat)) {
+                    s += via.toString() + '\n';
+                }
+            }
+        }
+        return s;
     }
 
     // Mira si la lista de vias contiene alguna via abierta
     @Override
     public boolean containsViesObertes() {
         for(Via via : llistaVies){
-            if(via.isEstatVia()){
+            if(via.getEstatVia().equals("Tancada")){
                 return true;
             }
-
         }
         return false;
     }
@@ -71,6 +89,4 @@ public class LlistaVies implements InLlistaVies {
         }
         throw new ExcepcioEstacio();
     }
-
-
 }
