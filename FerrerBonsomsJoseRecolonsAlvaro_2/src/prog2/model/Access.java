@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public abstract class Access implements InAcces{
     private String nom;
-    private String accessibilitat;
+    private boolean accessibilitat;
     private boolean estatAcces;
     private ArrayList<Via> accesVies;
 
-    public Access(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies) {
+    public Access(String nom, boolean accessibilitat) {
         this.nom = nom;
         this.accessibilitat = accessibilitat;
-        this.estatAcces = estatAcces;
-        this.accesVies = accesVies;
+        accesVies = new ArrayList<Via>();
+        estatAcces = false;
     }
 
     public String getNom() {
@@ -23,11 +23,9 @@ public abstract class Access implements InAcces{
         this.nom = nom;
     }
 
-    public String getAccessibilitat() {
-        return accessibilitat;
-    }
+    public abstract boolean isAccessibilitat();
 
-    public void setAccessibilitat(String accessibilitat) {
+    public void setAccessibilitat(boolean accessibilitat) {
         this.accessibilitat = accessibilitat;
     }
 
@@ -47,4 +45,28 @@ public abstract class Access implements InAcces{
     public void setAccesVies(ArrayList<Via> accesVies) {
         this.accesVies = accesVies;
     }
+
+    // Añade una via recibida como parámetro a la lista de vías del acceso
+    public void afegirVia(Via via){
+        accesVies.add(via);
+    }
+
+    // Cambia el estado de un acceso a cerrado
+    public void tancarAcces(){
+        this.setEstatAcces(false);
+    }
+
+    // Cambia el estado de un acceso a abierto
+    public void obrirAcces(){
+        this.setEstatAcces(true);
+    }
+
+    public String toString() {
+        return "Nom=" + getNom() + '\'' +
+                ", estatAcces=" + isEstatAcces() + '\'' +
+                ", accesibilidad=" + isAccessibilitat() + '\'' +
+                ", acceso a vías=" + getAccesVies() + '\'' +
+                '}';
+    }
+
 }

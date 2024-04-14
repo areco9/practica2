@@ -6,8 +6,8 @@ public class CintaTransportadora extends AccessNivell{
 
     private float velocitat;
 
-    public CintaTransportadora(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float longitud, float velocitat) {
-        super(nom, accessibilitat, estatAcces, accesVies, longitud);
+    public CintaTransportadora(float velocitat, float longitud, String nom, boolean accessibilitat) {
+        super(nom, accessibilitat, longitud);
         this.velocitat = velocitat;
     }
 
@@ -45,7 +45,7 @@ public class CintaTransportadora extends AccessNivell{
         return "CintaTransportadora{" +
                 "longitud=" + getLongitud() +
                 ", nom='" + getNom() + '\'' +
-                ", accessibilitat='" + getAccessibilitat() + '\'' +
+                ", accessibilitat='" + isAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
                 ", numVies=" + getAccesVies() +
                 "velocitat=" + velocitat +

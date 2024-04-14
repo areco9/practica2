@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public abstract class AccessNivell extends Access {
     private float longitud;
 
-    public AccessNivell(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height) {
-        super(nom, accessibilitat, estatAcces, accesVies);
+    public AccessNivell(String nom, boolean accessibilitat, float height) {
+        super(nom, accessibilitat);
         this.longitud = longitud;
     }
 

@@ -3,8 +3,8 @@ package prog2.model;
 import java.util.ArrayList;
 
 public class Passadis extends AccessNivell{
-    public Passadis(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float longitud) {
-        super(nom, accessibilitat, estatAcces, accesVies, longitud); // Llama al constructor de la clase padre con los parámetros requeridos
+    public Passadis(float longitud, String nom, boolean accessibilitat) {
+        super(nom, accessibilitat, longitud); // Llama al constructor de la clase padre con los parámetros requeridos
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Passadis extends AccessNivell{
 
     @Override
     public boolean isAccessibilitat() {
-        return false;
+        return true;
     }
 
     @Override

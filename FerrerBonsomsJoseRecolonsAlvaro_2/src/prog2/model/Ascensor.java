@@ -6,8 +6,8 @@ public class Ascensor extends AccessDesnivell {
 
     private float carrega;
 
-    public Ascensor(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height, float carrega) {
-        super(nom, accessibilitat, estatAcces, accesVies, height);
+    public Ascensor(float height, float carrega, String nom, boolean accessibilitat) {
+        super(nom, accessibilitat, height);
         this.carrega = carrega;
     }
 
@@ -28,7 +28,7 @@ public class Ascensor extends AccessDesnivell {
 
     @Override
     public boolean isAccessibilitat() {
-        return false;
+        return true;
     }
 
     public float getCarrega() {
@@ -45,7 +45,7 @@ public class Ascensor extends AccessDesnivell {
                 "carrega=" + carrega +
                 ", height=" + getHeight() +
                 ", nom='" + getNom() + '\'' +
-                ", accessibilitat='" + getAccessibilitat() + '\'' +
+                ", accessibilitat='" + isAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
                 ", numVies=" + getAccesVies() +
                 '}';

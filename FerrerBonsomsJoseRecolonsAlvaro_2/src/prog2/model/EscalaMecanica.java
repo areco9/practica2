@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class EscalaMecanica extends AccessDesnivell {
 
     private String marca;
-    public EscalaMecanica(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height, String marca) {
-        super(nom, accessibilitat, estatAcces, accesVies, height);
+    public EscalaMecanica(String marca, float height, String nom, boolean accessibilitat) {
+        super(nom, accessibilitat, height);
         this.marca = marca;
     }
 
@@ -44,7 +44,7 @@ public class EscalaMecanica extends AccessDesnivell {
                 "marca='" + marca + '\'' +
                 ", height=" + getHeight() +
                 ", nom='" + getNom() + '\'' +
-                ", accessibilitat='" + getAccessibilitat() + '\'' +
+                ", accessibilitat='" + isAccessibilitat() + '\'' +
                 ", estat=" + isEstatAcces() +
                 ", numVies=" + getAccesVies() +
                 '}';

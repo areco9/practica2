@@ -3,12 +3,12 @@ package prog2.model;
 public class Via implements InVia {
 
     private String nom;
-    private float ampladaVia;
+    private String ampladaVia;
     private int numTunels;
-    private String estatVia;
+    private boolean estatVia;
     private String estatIluminacio;
 
-    public Via(String nom, float ampladaVia, int numTunels, String estatVia, String estatIluminacio) {
+    public Via(String nom, String ampladaVia, int numTunels, boolean estatVia, String estatIluminacio) {
         this.nom = nom;
         this.ampladaVia = ampladaVia;
         this.numTunels = numTunels;
@@ -20,13 +20,15 @@ public class Via implements InVia {
     @Override
     public void tancarVia(Incidencia in) {
         Via via = in.getVia_();
-        via.setEstatVia("Tancada");
+        via.setEstatVia(false);
         via.setEstatIluminacio(in.getIluminacioVia());
     }
 
     // Modifica el estado de la via a Abierta y la iluminación al 100%
     @Override
     public void obrirVia() {
+        this.setEstatVia(true);
+        this.setEstatIluminacio("100%");
     }
 
     public String getNom() {
@@ -37,11 +39,11 @@ public class Via implements InVia {
         this.nom = nom;
     }
 
-    public float getAmpladaVia() {
+    public String getAmpladaVia() {
         return ampladaVia;
     }
 
-    public void setAmpladaVia(float ampladaVia) {
+    public void setAmpladaVia(String ampladaVia) {
         this.ampladaVia = ampladaVia;
     }
 
@@ -53,11 +55,11 @@ public class Via implements InVia {
         this.numTunels = numTunels;
     }
 
-    public String getEstatVia() {
+    public boolean isEstatVia() {
         return estatVia;
     }
 
-    public void setEstatVia(String estatVia) {
+    public void setEstatVia(boolean estatVia) {
         this.estatVia = estatVia;
     }
 
@@ -70,10 +72,9 @@ public class Via implements InVia {
     }
 
     public String toString() {
-        return "AccessDesnivell{" +
-                ", nom='" + getNom() + '\'' +
+        return "Nom='" + getNom() + '\'' +
                 ", ampladaVia='" + getAmpladaVia() + '\'' +
-                ", estatVia=" + getEstatVia() +
+                ", estatVia=" + isEstatVia() +
                 ", numTunels=" + getNumTunels() +
                 ", estatIluminacio=" + getEstatIluminacio() +
                 '}';

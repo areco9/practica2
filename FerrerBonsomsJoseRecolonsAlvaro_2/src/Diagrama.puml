@@ -1,0 +1,52 @@
+
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Access --> InAccess
+AccessDesnivell --> Access
+AccessNivell --> Access
+Ascensor -->AccessDesnivell
+Escala -->AccessDesnivell
+EscalaMecanica --> AccessDesnivell
+CintaTransportadora --> AccessNivell
+Passadis --> AccessNivell
+Via --> InVia
+LListaVies --> InLlistaVies
+LlistaAccessos --> InLlistaAccessos
+LlistaIncidencies --> InLlistaIncidencies
+
+@startuml
+abstract Access
+abstract Via
+abstract AccessNivell
+abstract AccessDesnivell
+interface InAccess
+interface InVia
+interface InLlistaAccessos
+interface InLlistaVies
+interface InLlistaIncidencies
+class Incidencia
+class ExcepcioEstacio
+class IniciadorEstacioTren
+class VistaEstacioTren
+class Menu
+class EstacioTren
+
+
+InAccess <|.. Access
+Access <|-- AccessDesnivell
+Access <|-- AccessNivell
+AccessDesnivell <|-- Ascensor
+AccessDesnivell <|-- Escala
+AccessDesnivell <|-- EscalaMecanica
+AccessNivell <|-- CintaTransportadora
+AccessNivell <|-- Passadis
+InVia <|.. Via
+InLlistaAccessos <|.. LlistaAccessos
+InLlistaVies <|.. LlistaVies
+InLlistaIncidencies <|.. LlistaIncidencies
+
+
+@enduml
+

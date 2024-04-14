@@ -6,8 +6,8 @@ import prog2.model.Via;
 import java.util.ArrayList;
 
 public class Escala extends AccessDesnivell {
-    public Escala(String nom, String accessibilitat, boolean estatAcces, ArrayList<Via> accesVies, float height) {
-        super(nom, accessibilitat, estatAcces, accesVies, height);
+    public Escala(float height, String nom, boolean accessibilitat) {
+        super(nom, accessibilitat, height);
     }
 
     @Override
